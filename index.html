@@ -961,12 +961,13 @@ const DEF_SET = {
 하여 별도의 완료 안내를 드리기 어려운 점 양해 부탁드립니다.
 혹시라도 구매시 변동사항이 확인되면 바로 안내드리겠습니다.
 감사합니다.`,
-  acc1Bank: '국민은행 061701-04-174860', acc1Holder: '여조은',
+  acc1Bank: '국민은행 476101-01-454482', acc1Holder: '여조은',
   acc2Bank: '토스뱅크 1000-0080-2716', acc2Holder: '여휘수',
   acc3Bank: '국민은행 895401-00-038538', acc3Holder: '여조은(이안어스)', comment: '안녕하세요 메일로 견적드렸습니다 감사합니다'
 };
 let S = Object.assign({}, DEF_SET, store.get('twin.settings', {}));
 if (!S.notice) S.notice = DEF_SET.notice;
+if (/061701-04-174860/.test(S.acc1Bank || '')) { S.acc1Bank = DEF_SET.acc1Bank; S.acc1Holder = '여조은'; store.set('twin.settings', S); }  // 일반 견적 계좌 변경 (2026-10)
 if (!S.commentQuote) S.commentQuote = DEF_SET.commentQuote;
 if (S.bank && !store.get('twin.settings', {}).acc1Bank) { S.acc1Bank = S.bank; S.acc1Holder = S.holder || S.acc1Holder; }
 const ACC_LABEL = { 1: '일반 견적', 3: '세금계산서 발행', 4: '사업자통관 (세금계산서 발행)', 2: '국제배송비 안내' };
